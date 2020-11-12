@@ -7,7 +7,7 @@ $("#city-form").submit(function (event) {
 });
 
 function getWeather(city) {
-    $.get("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=d11771b7ba65e99baa089a03cbd1362b", function (data) {
+    $.get("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=d11771b7ba65e99baa089a03cbd1362b", function (data) {
         console.log(data);
 
         $("#city").html(data.main.name);
@@ -18,12 +18,12 @@ function getWeather(city) {
         $("#speed").html("Wind Speed: " + data.wind.speed + " mph");
     });
 
-    $.get("http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=d11771b7ba65e99baa089a03cbd1362b", function (data) {
+    $.get("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=d11771b7ba65e99baa089a03cbd1362b", function (data) {
         console.log(data);
 
         var dayOne = moment().format("M/D/YYYY");
         var dayOneIcon = data.list[0].weather[0].icon;
-        var dayOneImage = "http://openweathermap.org/img/wn/" + dayOneIcon + ".png";
+        var dayOneImage = "https://openweathermap.org/img/wn/" + dayOneIcon + ".png";
         var dayOneImageSrc = $("<img>").attr("src", dayOneImage);
         var dayOneTemp = data.list[0].main.temp + " °F";
         var dayOneTempFar = (dayOneTemp - 273.15) * 1.8 + 32;
@@ -41,7 +41,7 @@ function getWeather(city) {
 
         var dayTwo = moment().add(1, "days").format("M/D/YYYY");
         var dayTwoIcon = data.list[8].weather[0].icon;
-        var dayTwoImage = "http://openweathermap.org/img/wn/" + dayTwoIcon + ".png";
+        var dayTwoImage = "https://openweathermap.org/img/wn/" + dayTwoIcon + ".png";
         var dayTwoImageSrc = $("<img>").attr("src", dayTwoImage);
         var dayTwoTemp = data.list[8].main.temp + " °F";
         var dayTwoTempFar = (dayTwoTemp - 273.15) * 1.8 + 32;
@@ -60,7 +60,7 @@ function getWeather(city) {
 
         var dayThree = moment().add(2, "days").format("M/D/YYYY");
         var dayThreeIcon = data.list[16].weather[0].icon;
-        var dayThreeImage = "http://openweathermap.org/img/wn/" + dayThreeIcon + ".png";
+        var dayThreeImage = "https://openweathermap.org/img/wn/" + dayThreeIcon + ".png";
         var dayThreeImageSrc = $("<img>").attr("src", dayThreeImage);
         var dayThreeTemp = data.list[16].main.temp + " °F";
         var dayThreeTempFar = (dayThreeTemp - 273.15) * 1.8 + 32;
@@ -79,7 +79,7 @@ function getWeather(city) {
 
         var dayFour = moment().add(3, "days").format("M/D/YYYY");
         var dayFourIcon = data.list[24].weather[0].icon;
-        var dayFourImage = "http://openweathermap.org/img/wn/" + dayFourIcon + ".png";
+        var dayFourImage = "https://openweathermap.org/img/wn/" + dayFourIcon + ".png";
         var dayFourImageSrc = $("<img>").attr("src", dayFourImage);
         var dayFourTemp = data.list[24].main.temp + " °F";
         var dayFourTempFar = (dayFourTemp - 273.15) * 1.8 + 32;
@@ -98,7 +98,7 @@ function getWeather(city) {
 
         var dayFive = moment().add(4, "days").format("M/D/YYYY");
         var dayFiveIcon = data.list[32].weather[0].icon;
-        var dayFiveImage = "http://openweathermap.org/img/wn/" + dayFiveIcon + ".png";
+        var dayFiveImage = "https://openweathermap.org/img/wn/" + dayFiveIcon + ".png";
         var dayFiveImageSrc = $("<img>").attr("src", dayFiveImage);
         var dayFiveTemp = data.list[32].main.temp + " °F";
         var dayFiveTempFar = (dayFiveTemp - 273.15) * 1.8 + 32;
